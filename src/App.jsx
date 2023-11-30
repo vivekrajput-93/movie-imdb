@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import Rated from "./pages/Rated";
 import Navbar from "./components/Navbar";
+import Movie from "./components/Movie"
+import Show from "./components/Show"
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/auth" element={<Auth/>} />
           <Route path="/rated" element={<Rated/>} />
+          <Route path="/moive/:id" element={<Movie />} />
+          <Route path="/show/:id" element={<Show />} />
         </Routes>
       </Router>
     </div>
