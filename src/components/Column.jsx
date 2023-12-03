@@ -17,7 +17,7 @@ const Column = ({ data }) => {
       {data && data.length > 0 ? (
         data.map((item) => (
           <div key={item.id} className="card">
-            <Link to={item.media_type == 'movies' ? `/movie/${item.id}` : `/show/${item.id}`}>
+            <Link to={`/movie/${item.id}`}>
               <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title || item.name} />
               <div className="card-details">
                 <h3>{item.title || item.name}</h3>
