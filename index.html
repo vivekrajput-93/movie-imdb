@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Registration</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Add custom styles here if needed */
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2>User Registration</h2>
+  <form id="registrationForm">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" name="username">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email">
+    </div>
+    <!-- Other registration fields (age, dob, contact, etc.) -->
+
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS and jQuery (for AJAX) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  $('#registrationForm').submit(function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Validate inputs
+    var username = $('#username').val();
+    var email = $('#email').val();
+    // Add validation for other fields
+
+    if (username.trim() === '' || email.trim() === '') {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    // AJAX request to send registration data to the backend
+    $.ajax({
+      type: 'POST',
+      url: 'backend.php', // Replace with your backend endpoint
+      data: {
+        username: username,
+        email: email,
+        // Add other registration data here
+      },
+      success: function(response) {
+        // Handle success response
+        console.log('Registration successful');
+        // Redirect to login page or perform any other action
+      },
+      error: function(xhr, status, error) {
+        // Handle error response
+        console.error('Registration failed:', error);
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
